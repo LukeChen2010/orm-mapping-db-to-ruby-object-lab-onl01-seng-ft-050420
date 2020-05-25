@@ -122,8 +122,6 @@ class Student
     DB[:conn].execute(sql, x).map do |row|
       all_students_in_grade_x << self.new_from_db(row)
     end.first
-    
-    return all_students_in_grade_x
   end
 end
 
