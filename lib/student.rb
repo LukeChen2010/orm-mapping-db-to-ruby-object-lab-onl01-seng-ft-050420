@@ -87,4 +87,21 @@ class Student
       students_below_12th_grade << self.new_from_db(row)
     end.first
   end
+  
+  def self.students_below_12th_grade
+    students_below_12th_grade = []
+    
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE grade < ?
+      LIMIT 1
+    SQL
+    
+    DB[:conn].execute(sql, 12).map do |row|
+      students_below_12th_grade << self.new_from_db(row)
+    end.first
+  end
 end
+
+
