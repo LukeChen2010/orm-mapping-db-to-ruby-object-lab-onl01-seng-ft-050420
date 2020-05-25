@@ -7,7 +7,8 @@ class Student
     new_song.id = row[0]
     new_song.name =  row[1]
     new_song.length = row[2]
-    new_song  
+    new_song  # return the newly created instance
+  end
 
   def self.all
     # retrieve all the rows from the "Students" database
