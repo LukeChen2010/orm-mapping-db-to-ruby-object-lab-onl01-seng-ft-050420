@@ -69,6 +69,8 @@ class Student
     DB[:conn].execute(sql).map do |row|
       all << self.new_from_db(row)
     end.first
+    
+    return all
   end
   
   def self.all_students_in_grade_9
@@ -88,6 +90,8 @@ class Student
     DB[:conn].execute(sql, 12).map do |row|
       students_below_12th_grade << self.new_from_db(row)
     end.first
+    
+    return students_below_12th_grade
   end
   
   def self.first_X_students_in_grade_10(x)
@@ -103,6 +107,8 @@ class Student
     DB[:conn].execute(sql, 10, x).map do |row|
       first_X_students_in_grade_10 << self.new_from_db(row)
     end.first
+    
+    return first_X_students_in_grade_10
   end
   
   def self.first_student_in_grade_10 
@@ -122,6 +128,8 @@ class Student
     DB[:conn].execute(sql, x).map do |row|
       all_students_in_grade_x << self.new_from_db(row)
     end.first
+    
+    return all_students_in_grade_x
   end
 end
 
