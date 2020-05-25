@@ -58,6 +58,19 @@ class Student
     DB[:conn].execute(sql)
   end
   
+  def self.all
+    all = []
+    
+    sql = <<-SQL
+      SELECT *
+      FROM students
+    SQL
+    
+    DB[:conn].execute(sql).map do |row|
+      all << self.new_from_db(row)
+    end.first
+  end
+  
   def self.all_students_in_grade_9
     all_students_in_grade_9 = []
     
