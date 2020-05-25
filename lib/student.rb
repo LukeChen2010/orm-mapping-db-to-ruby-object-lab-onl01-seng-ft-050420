@@ -115,8 +115,8 @@ class Student
     return self.first_X_students_in_grade_10(1)[0]
   end
   
-   def self.all_students_in_grade_x(x)
-    all_students_in_grade_x = []
+   def self.all_students_in_grade_X(x)
+    all_students_in_grade_X = []
     
     sql = <<-SQL
       SELECT *
@@ -126,10 +126,10 @@ class Student
     SQL
     
     DB[:conn].execute(sql, x).map do |row|
-      all_students_in_grade_x << self.new_from_db(row)
+      all_students_in_grade_X << self.new_from_db(row)
     end.first
     
-    return all_students_in_grade_x
+    return all_students_in_grade_X
   end
 end
 
